@@ -11,6 +11,16 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
+app.get('/', (req, res) => {
+  res.send('API is working111111111111111');
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' data:;");
+  next();
+});
+
+
 app.use('/api/locations', locationRoutes);
 
 app.listen(PORT, () => {
