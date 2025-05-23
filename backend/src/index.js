@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './lib/db.js';
+import cors from 'cors';
 
 import locationRoutes from './routes/locationRoutes.js';
 
@@ -10,6 +11,10 @@ dotenv.config();
 app.use(express.json());
 
 const PORT = process.env.PORT;
+
+app.use(cors({
+  credentials: true,
+}));
 
 app.get('/', (req, res) => {
   res.send('API is working111111111111111');
