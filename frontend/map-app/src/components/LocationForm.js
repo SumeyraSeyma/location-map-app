@@ -8,7 +8,6 @@ const LocationForm = () => {
     addLocation,
     updateLocation,
     loading,
-    error,
   } = useLocationStore();
 
   const [formData, setFormData] = useState({
@@ -68,7 +67,6 @@ const LocationForm = () => {
         {selectedLocation ? "Edit Location" : "Add New Location"}
       </h2>
       {loading && <p className="text-yellow-600 mb-2"> Loading...</p>}
-      {error && <p className="text-red-600 mb-2"> Error: {error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">
@@ -97,6 +95,8 @@ const LocationForm = () => {
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             required
             step="any"
+            max={90}
+            min={-90}
           />
         </div>
         <div>
@@ -112,6 +112,8 @@ const LocationForm = () => {
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             required
             step="any"
+            max={180}
+            min={-180}
           />
         </div>
         <div>

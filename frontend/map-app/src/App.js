@@ -6,7 +6,7 @@ import LocationList from "./components/LocationList";
 import useLocationStore from "./store/locationStore";
 
 function App() {
-  const { fetchLocations, loading, error } = useLocationStore();
+  const { fetchLocations, loading } = useLocationStore();
 
   useEffect(() => {
     fetchLocations();
@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Location Management App</h1>
-      {error && <p className="text-red-600 mb-2">Error: {error}</p>}
       <div className="mt-6">
         <Map />
       </div>

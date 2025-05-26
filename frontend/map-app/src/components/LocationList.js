@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useLocationStore from '../store/locationStore';
 
 const LocationList = () => {
-  const { locations, setSelectedLocation, fetchRoute, loading, error } = useLocationStore();
+  const { locations, setSelectedLocation, fetchRoute, loading } = useLocationStore();
   const [startLat, setStartLat] = useState('');
   const [startLon, setStartLon] = useState('');
 
@@ -16,7 +16,6 @@ const LocationList = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-4">Location List</h2>
       {loading && <p className="text-yellow-600 mb-2"> Loading...</p>}
-      {error && <p className="text-red-600 mb-2"> Error: {error}</p>}
       {locations.length === 0 ? (
         <p className="text-gray-500"> No locations found.</p>
       ) : (

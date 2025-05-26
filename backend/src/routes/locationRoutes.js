@@ -8,12 +8,18 @@ import {
   calculateRoute,
 } from "../controller/locationController.js";
 
+import {
+  validateCreateLocation,
+  validateUpdateLocation,
+  validateRouteQuery,
+} from "../middleware/validation.js";
+
 const router = Router();
 
-router.get("/routes", calculateRoute)
+router.get("/routes",validateRouteQuery, calculateRoute)
 router.get("/", getAllLocations);
 router.get("/:id", getLocationById);
-router.post("/", createLocation);
-router.put("/:id", updateLocation);
+router.post("/", validateCreateLocation, createLocation);
+router.put("/:id",validateUpdateLocation, updateLocation);
 
 export default router;
