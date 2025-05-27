@@ -69,11 +69,12 @@ const LocationForm = () => {
       {loading && <p className="text-yellow-600 mb-2"> Loading...</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
             {" "}
             Location Name
           </label>
           <input
+          id="name"
             type="text"
             name="name"
             value={formData.name}
@@ -83,11 +84,12 @@ const LocationForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label htmlFor="latitude" className="block text-sm font-medium text-gray-700">
             {" "}
             Latitude{" "}
           </label>
           <input
+          id="latitude"
             type="number"
             name="latitude"
             value={formData.latitude}
@@ -100,11 +102,12 @@ const LocationForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label htmlFor="longitude" className="block text-sm font-medium text-gray-700">
             {" "}
             Longitude{" "}
           </label>
           <input
+          id="longitude"
             type="number"
             name="longitude"
             value={formData.longitude}
@@ -117,11 +120,12 @@ const LocationForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label htmlFor="color" className="block text-sm font-medium text-gray-700">
             {" "}
             Color{" "}
           </label>
           <input
+          id="color"
             type="color"
             name="color"
             value={formData.color}
